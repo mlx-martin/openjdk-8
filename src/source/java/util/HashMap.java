@@ -40,7 +40,7 @@ import java.util.function.Function;
 
 /**
  * JDK 7：数组 + 链表
- * JDK 8：数组 + 链表 + 红黑树
+ * JDK 8：数组 + 链表 + 红黑树（在jdk1.8中当链表长度大于8是会被转化成红黑树）
  * <p>
  * 问：为什么使用链表？
  * 答：使用链地址法解决哈希冲突。
@@ -185,7 +185,7 @@ public class HashMap<K, V> extends AbstractMap<K, V> implements Map<K, V>, Clone
      * int hash = key.hashCode();       // 求出 key 的哈希值。
      * int i = hash % array.length;     // 对数组长度取模求出数组下标。
      * }
-     * 二、哈希冲突时，使用头插法形成链表，链表头部的值存在数组中。
+     * 二、哈希冲突时，在jdk1.8之前是插入头部的，在jdk1.8中是插入尾部的。形成链表，链表头部的值存在数组中。
      */
     public V put(K key, V value) {
         return putVal(hash(key), key, value, false, true);

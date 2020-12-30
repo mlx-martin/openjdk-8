@@ -1,8 +1,8 @@
-package test.hashmap;
+package test;
 
 import java.util.HashMap;
 
-public class Test {
+public class Main {
 
     public static void main(String[] args) {
         HashMap<String, Double> map = new HashMap<>();
